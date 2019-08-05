@@ -19,6 +19,7 @@ import os
 import random
 import re
 import time
+import unicodedata
 from cgi import FieldStorage
 from copy import deepcopy
 
@@ -1849,7 +1850,7 @@ def _decode(value, charset):
         return dict((k, _decode(v, charset)) for k, v in value.items())
     elif isinstance(value, binary_type):
         return text_type(value, charset, 'replace')
-    return value
+    return unicodedata.normalize('NFC', value)
 
 
 def use_builtin_xmlrpc(request):
