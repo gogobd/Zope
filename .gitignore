@@ -10,6 +10,7 @@
 .project
 .pydevproject
 .tox
+.DS_Store
 /bin/
 /build/
 /_build/
